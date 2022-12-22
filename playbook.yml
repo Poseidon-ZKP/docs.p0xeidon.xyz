@@ -1,16 +1,8 @@
 site:
   title: p0x-labs
-  start_page: component-b::index.adoc
+  start_page: p0x-lab::index.adoc
 content:
   sources:
-  - url: https://gitlab.com/antora/demo/demo-component-a.git
-    branches: HEAD
-  - url: https://gitlab.com/antora/demo/demo-component-b.git
-    branches: [v2.0, v1.0]
-    start_path: docs
-  - url: https://github.com/moribetamidori/zkVote-web
-    branches: HEAD
-    start_path: docs
   - url: https://github.com/Poseidon-ZKP/docs.p0xeidon.xyz
     branches: HEAD
     start_path: Poseidon-ZK-Contracts
