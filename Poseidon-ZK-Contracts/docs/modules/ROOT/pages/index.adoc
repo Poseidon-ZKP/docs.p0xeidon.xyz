@@ -1,0 +1,52 @@
+= Contracts
+
+*A library for secure smart contract development.* Build on a solid foundation of community-vetted code.
+
+== Overview
+
+[[install]]
+=== Installation
+
+```console
+$ npm install @openzeppelin/contracts
+```
+
+
+[[usage]]
+=== Usage
+
+Once installed, you can use the contracts in the library by importing them:
+
+[source,solidity]
+----
+// contracts/MyNFT.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract MyNFT is ERC721 {
+    constructor() ERC721("MyNFT", "MNFT") {
+    }
+}
+----
+
+
+To keep your system secure, you should **always** use the installed code as-is, and neither copy-paste it from online sources, nor modify it yourself. The library is designed so that only the contracts and functions you use are deployed, so you don't need to worry about it needlessly increasing gas costs.
+
+[[security]]
+== Security
+
+Please report any security issues you find via our https://www.immunefi.com/bounty/openzeppelin[bug bounty program on Immunefi] or directly to security@openzeppelin.org.
+
+[[next-steps]]
+== Learn More
+
+The guides in the sidebar will teach about different concepts, and how to use the related contracts that OpenZeppelin Contracts provides:
+
+
+Finally, you may want to take a look at the https://blog.openzeppelin.com/guides/[guides on our blog], which cover several common use cases and good practices. The following articles provide great background reading, though please note, some of the referenced tools have changed as the tooling in the ecosystem continues to rapidly evolve.
+
+* https://blog.openzeppelin.com/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05[The Hitchhiker’s Guide to Smart Contracts in Ethereum] will help you get an overview of the various tools available for smart contract development, and help you set up your environment.
+* https://blog.openzeppelin.com/a-gentle-introduction-to-ethereum-programming-part-1-783cc7796094[A Gentle Introduction to Ethereum Programming, Part 1] provides very useful information on an introductory level, including many basic concepts from the Ethereum platform.
+* For a more in-depth dive, you may read the guide https://blog.openzeppelin.com/designing-the-architecture-for-your-ethereum-application-9cec086f8317[Designing the architecture for your Ethereum application], which discusses how to better structure your application and its relationship to the real world.
