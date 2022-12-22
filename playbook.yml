@@ -11,6 +11,10 @@ content:
   - url: https://github.com/moribetamidori/zkVote-web
     branches: HEAD
     start_path: docs
+  - url: https://github.com/Poseidon-ZKP/docs.p0xeidon.xyz
+    branches: HEAD
+    start_path: Poseidon-ZK-Contracts
+
 ui:
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable

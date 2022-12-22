@@ -1,0 +1,10 @@
+name: p0x-lab
+title: p0x-lab
+version: 1.0.0
+start_page: index.adoc
+asciidoc:
+  attributes:
+    source-language: asciidoc@
+    table-caption: false
+nav:
+- modules/ROOT/nav.adoc
