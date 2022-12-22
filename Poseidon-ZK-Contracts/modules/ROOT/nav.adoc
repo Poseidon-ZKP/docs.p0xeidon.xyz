@@ -1,4 +1,5 @@
-* xref:index.adoc[Overview]
+* xref:index.adoc[Poseidon ZK Contracts]
+* xref:overview.adoc[Overview]
 * xref:technologies.adoc[Technologies]
 ** xref:cp-snark.adoc[CP-SNARK]
 ** xref:merkle-forest.adoc[Merkle Forest]
