@@ -2066,8 +2066,9 @@ body {
 }
 
 .navbar-brand .navbar-item {
-    color: #2196F3;
-    font-size: x-large;
+    color: #000;
+    font-size: large;
+    font-weight: 500;
 }
 
 .navbar-brand .navbar-item:first-child {
