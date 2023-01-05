@@ -1,13 +1,2 @@
 = Poseidon ZK Contracts Overview Test
-[mermaid]
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+image::https://mermaid.ink/img/pako:eNpVj8FqwzAMhl9F6LRB8wI5DNpk66WwQXta3INIlNqstoyjMEqSd5_TMth0kv7_-4U0YSsdY4mXRNHCqTYBcm2byiY3qKfhDEXxMu9ZwUvg2wy7p73AYCVGFy7PD363QlBNhxVjUOvC1_Kwqnv-PfAMdXOgqBLPf53Tt8zw2rgPm9f_d2zinHpreip7KlpKUFG6I7hBz8mT6_Lp06oYVMueDZa57bin8aoGTVgySqPK8RZaLDWNvMExdqRcO8pP-18xUvgUyWNP14GXH7DnWow?type=png)](https://mermaid.live/edit#pako:eNpVj8FqwzAMhl9F6LRB8wI5DNpk66WwQXta3INIlNqstoyjMEqSd5_TMth0kv7_-4U0YSsdY4mXRNHCqTYBcm2byiY3qKfhDEXxMu9ZwUvg2wy7p73AYCVGFy7PD363QlBNhxVjUOvC1_Kwqnv-PfAMdXOgqBLPf53Tt8zw2rgPm9f_d2zinHpreip7KlpKUFG6I7hBz8mT6_Lp06oYVMueDZa57bin8aoGTVgySqPK8RZaLDWNvMExdqRcO8pP-18xUvgUyWNP14GXH7DnWow[Sample Image]
