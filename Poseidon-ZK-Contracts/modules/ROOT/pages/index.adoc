@@ -1,11 +1,5 @@
 = Poseidon ZK Contracts Overview Test
 [mermaid]
-graph LR
-    A --> B
-    B --> C
-    C --> A
-
-[mermaid]
 sequenceDiagram
 autonumber
 
