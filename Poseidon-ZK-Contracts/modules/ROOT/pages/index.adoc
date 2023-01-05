@@ -1,11 +1,13 @@
 = Poseidon ZK Contracts Overview 
 
 [mermaid]
-----
-graph LR
-    A[Square Rect] -- Link text --> B((Circle))
-    A --> C(Round Rect)
-    B --> D{Rhombus}
-    C --> D
-----
+....
+sequenceDiagram
+autonumber
 
+participant a as Alice
+participant b as Bob
+
+a ->>+ b : Hello.
+b -->>- a : Hi, there.
+....
