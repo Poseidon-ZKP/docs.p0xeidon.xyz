@@ -1,1 +1,10 @@
 = ZK Vote
+
+ZKVote is a dapp that allows users to vote anonymously. It allows you to:
+
+=== Create a group 
+=== Join a group 
+=== Create a Poll 
+=== Vote in a poll anonymously
+
+link:zk-vote-architecture.adoc[ZK Vote Architecture]
