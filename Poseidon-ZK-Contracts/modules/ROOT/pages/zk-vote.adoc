@@ -7,4 +7,4 @@ ZKVote is a dapp that allows users to vote anonymously. It allows you to:
 === Create a Poll 
 === Vote in a poll anonymously
 
-link:zk-vote-architecture.adoc[ZK Vote Architecture]
+xref:zk-vote-architecture.adoc[ZK Vote Architecture]
