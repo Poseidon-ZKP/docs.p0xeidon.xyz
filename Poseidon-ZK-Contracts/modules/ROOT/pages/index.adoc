@@ -1,13 +1,11 @@
 = Poseidon ZK Contracts Overview 
 
-[mermaid]
-....
-sequenceDiagram
-autonumber
-
-participant a as Alice
-participant b as Bob
-
-a ->>+ b : Hello.
-b -->>- a : Hi, there.
-....
+++++
+<iframe
+  height="450"
+  width="800"
+  src="https://www.figma.com/embed?embed_host=astra&url=\
+       https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File"
+  allowfullscreen
+/>
+++++
