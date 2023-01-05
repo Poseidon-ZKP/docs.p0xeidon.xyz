@@ -8,6 +8,7 @@
     "build": "antora --fetch playbook.yml"
   },
   "dependencies": {
-    "mermaid": "^9.3.0"
+    "mermaid": "^9.3.0",
+    "mermaid-filter": "^1.4.6"
   }
 }
