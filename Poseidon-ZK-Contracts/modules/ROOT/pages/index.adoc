@@ -4,4 +4,13 @@ graph LR
     A --> B
     B --> C
     C --> A
-[/mermaid]
+
+[mermaid]
+sequenceDiagram
+autonumber
+
+participant a as Alice
+participant b as Bob
+
+a ->>+ b : Hello.
+b -->>- a : Hi, there.
