@@ -1,1 +1,1 @@
-= Poseidon ZK Contracts Overview Test 
+= Poseidon ZK Contracts Overview 

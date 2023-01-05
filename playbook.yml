@@ -1,5 +1,5 @@
 site:
-  title: p0x-labs
+  title: Poseidon Labs
   start_page: p0x-lab::index.adoc
 content:
   sources:
@@ -9,5 +9,4 @@ content:
 
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
+    url: ./ui/theme
