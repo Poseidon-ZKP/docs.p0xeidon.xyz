@@ -16,6 +16,7 @@
 
 * xref:application-contracts.adoc[Application Contracts]
 ** xref:zk-vote.adoc[ZK Vote]
+*** xref:zk-vote-architecture.adoc[ZK Vote Architecture]
 ** xref:zk-poker.adoc[ZK Poker]
 
 * xref:deployed-contracts.adoc[Deployed Contracts]
