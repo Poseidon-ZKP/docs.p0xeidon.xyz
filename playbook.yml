@@ -1,12 +1,11 @@
 site:
-  title: Poseidon Labs
+  title: Poseidon Labs 
   start_page: p0x-lab::index.adoc
 content:
   sources:
   - url: https://github.com/Poseidon-ZKP/docs.p0xeidon.xyz
     branches: HEAD
     start_path: Poseidon-ZK-Contracts
-
 ui:
   bundle:
     url: ./ui/theme
