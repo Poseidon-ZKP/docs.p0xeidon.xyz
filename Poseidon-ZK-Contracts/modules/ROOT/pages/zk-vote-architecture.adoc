@@ -16,6 +16,28 @@ contract IGroup group
 contract ISignal signal
 ----
 
+=== VoteAdded
+
+[source,solidity]
+----
+event VoteAdded(uint256 groupId, bytes32 voteMsg)
+----
+
+=== JoinRequested
+
+[source,solidity]
+----
+event JoinRequested(uint256 groupId, uint256 identityCommitment)
+----
+
+[#viewPollStat]
+=== voteStat
+
+[source,solidity]
+----
+mapping(uint256 => mapping(bytes32 => uint256)) voteStat
+----
+
 === GROUP_ID
 
 [source,solidity]
@@ -23,11 +45,134 @@ contract ISignal signal
 uint256 GROUP_ID
 ----
 
-=== constructor
+=== idInGroup
 
 [source,solidity]
 ----
-constructor(contract IGroup _group, contract ISignal _signal) public
+mapping(uint256 => mapping(uint256 => bool)) idInGroup
+----
+
+=== admins
+
+[source,solidity]
+----
+mapping(uint256 => address) admins
+----
+
+=== onlyAdmin
+
+[source,solidity]
+----
+modifier onlyAdmin(uint256 id)
+----
+
+=== groupDesc
+
+[source,solidity]
+----
+mapping(uint256 => string) groupDesc
+----
+
+=== groupIcon
+
+[source,solidity]
+----
+mapping(uint256 => string) groupIcon
+----
+
+=== groupPrivacy
+
+[source,solidity]
+----
+mapping(uint256 => string) groupPrivacy
+----
+
+=== groupName
+
+[source,solidity]
+----
+mapping(uint256 => string) groupName
+----
+
+=== PRIVACY
+
+[source,solidity]
+----
+enum PRIVACY {
+  ANYONE,
+  NFT,
+  TOKEN
+}
+----
+
+=== groupInfo
+
+[source,solidity]
+----
+struct groupInfo {
+  uint256 id;
+  string name;
+  string desc;
+  string icon;
+  enum Vote.PRIVACY privacy;
+  address asset;
+}
+----
+
+=== GroupInfo
+
+[source,solidity]
+----
+event GroupInfo(uint256 groupId, string name, string desc, string icon, enum Vote.PRIVACY privacy, address asset)
+----
+
+=== groups
+
+[source,solidity]
+----
+mapping(uint256 => struct Vote.groupInfo) groups
+----
+
+=== groupPolls
+
+[source,solidity]
+----
+mapping(uint256 => mapping(uint256 => struct Poll)) groupPolls
+----
+
+=== groupPollNum
+
+[source,solidity]
+----
+mapping(uint256 => uint256) groupPollNum
+----
+
+=== pollVoteStat
+
+[source,solidity]
+----
+mapping(uint256 => mapping(uint256 => mapping(string => uint256))) pollVoteStat
+----
+
+=== PoolVoteAdded
+
+[source,solidity]
+----
+event PoolVoteAdded(uint256 groupId, uint256 poolId, string voteMsg)
+----
+
+=== MemberAdded
+
+[source,solidity]
+----
+event MemberAdded(uint256 groupId, uint256 identityCommitment)
+----
+
+=== initialize
+
+[source,solidity]
+----
+function initialize(contract IGroup _group, contract ISignal _signal) external
 ----
 
 [#createGroup]
@@ -35,7 +180,28 @@ constructor(contract IGroup _group, contract ISignal _signal) public
 
 [source,solidity]
 ----
-function createGroup(uint256 merkleTreeDepth, address admin) external returns (uint256)
+function createGroup(uint256 merkleTreeDepth, address admin) public returns (uint256)
+----
+
+=== CreateGroupExtra
+
+[source,solidity]
+----
+function CreateGroupExtra(uint256 merkleTreeDepth, address admin, string name, string description, string privacy, string icon) public returns (uint256 groupId)
+----
+
+=== CreateGroupWithAssetDemand
+
+[source,solidity]
+----
+function CreateGroupWithAssetDemand(uint256 merkleTreeDepth, address admin, string name, string description, enum Vote.PRIVACY privacy, string icon, address asset) public returns (uint256 groupId)
+----
+
+=== JoinRequest
+
+[source,solidity]
+----
+function JoinRequest(uint256 groupId, uint256 identityCommitment) public
 ----
 
 [#joinGroup]
@@ -46,12 +212,47 @@ function createGroup(uint256 merkleTreeDepth, address admin) external returns (u
 function addMember(uint256 groupId, uint256 identityCommitment) public
 ----
 
+=== checkPrivacy
+
+[source,solidity]
+----
+function checkPrivacy(uint256 groupId) public
+----
+
+=== PollAdded
+
+[source,solidity]
+----
+event PollAdded(uint256 groupId, uint256 pollId, string title, string[] voteMsgs)
+----
+
 [#createPoll]
 === createPollInGroup
 
 [source,solidity]
 ----
-function createPollInGroup(uint256 groupId, string voteMsg, string title) public
+function createPollInGroup(uint256 groupId, string[] voteMsgs, string title) public returns (uint256 pollId)
+----
+
+=== votePollInGroup
+
+[source,solidity]
+----
+function votePollInGroup(uint256 rc, uint256 groupId, uint256[8] group_proof, uint256 pollId, string voteMsg, uint256 nullifierHash, uint256 externalNullifier, uint256[8] signal_proof) public
+----
+
+=== voteInPoll
+
+[source,solidity]
+----
+function voteInPoll(uint256 rc, uint256 groupId, uint256[8] group_proof, uint256 pollId, string voteMsg, uint256 nullifierHash, uint256[8] signal_proof) public
+----
+
+=== stringToBytes32
+
+[source,solidity]
+----
+function stringToBytes32(string source) public pure returns (bytes32 result)
 ----
 
 [#votePoll]
@@ -62,10 +263,614 @@ function createPollInGroup(uint256 groupId, string voteMsg, string title) public
 function vote(uint256 rc, uint256 groupId, uint256[8] group_proof, bytes32 voteMsg, uint256 nullifierHash, uint256 externalNullifier, uint256[8] signal_proof) public
 ----
 
-[#viewPollStat]
-=== voteStat
+== Decrypt
+
+=== constructor
 
 [source,solidity]
 ----
-mapping(uint256 => mapping(bytes32 => uint256)) voteStat
+constructor() public
 ----
+
+== Example
+
+=== verifier
+
+[source,solidity]
+----
+address verifier
+----
+
+=== mulResult
+
+[source,solidity]
+----
+uint256 mulResult
+----
+
+=== constructor
+
+[source,solidity]
+----
+constructor(address verifier_) public
+----
+
+=== joinGameWithProof
+
+[source,solidity]
+----
+function joinGameWithProof(uint256[2] a, uint256[2][2] b, uint256[2] c, uint256[2] input) external view
+----
+
+== IVerifier
+
+=== verifyProof
+
+[source,solidity]
+----
+function verifyProof(uint256[2] a, uint256[2][2] b, uint256[2] c, uint256[2] input) external view
+----
+
+== Group
+
+=== verifiers
+
+[source,solidity]
+----
+mapping(uint256 => contract IVerifier) verifiers
+----
+
+=== admins
+
+[source,solidity]
+----
+mapping(uint256 => address) admins
+----
+
+=== onlyAdmin
+
+[source,solidity]
+----
+modifier onlyAdmin(uint256 id)
+----
+
+=== updateGroupAdmin
+
+[source,solidity]
+----
+function updateGroupAdmin(uint256 groupId, address newAdmin) external
+----
+
+=== constructor
+
+[source,solidity]
+----
+constructor(struct IGroup.Verifier[] _verifiers) public
+----
+
+=== createGroup
+
+[source,solidity]
+----
+function createGroup(uint256 groupId, uint256 merkleTreeDepth, address admin) public
+----
+
+=== addMember
+
+[source,solidity]
+----
+function addMember(uint256 groupId, uint256 identityCommitment) public
+----
+
+=== updateMember
+
+[source,solidity]
+----
+function updateMember(uint256 groupId, uint256 identityCommitment, uint256 newIdentityCommitment, uint256[] proofSiblings, uint8[] proofPathIndices) public
+----
+
+=== removeMember
+
+[source,solidity]
+----
+function removeMember(uint256 groupId, uint256 identityCommitment, uint256[] proofSiblings, uint8[] proofPathIndices) public
+----
+
+=== verifyProof
+
+[source,solidity]
+----
+function verifyProof(uint256 rc, uint256 groupId, uint256[8] proof) external view returns (bool)
+----
+
+== IShuffleEncryptVerifier
+
+=== verifyProof
+
+[source,solidity]
+----
+function verifyProof(uint256[2] a, uint256[2][2] b, uint256[2] c, uint256[215] input) external view
+----
+
+== IDecryptVerifier
+
+=== verifyProof
+
+[source,solidity]
+----
+function verifyProof(uint256[2] a, uint256[2][2] b, uint256[2] c, uint256[8] input) external view
+----
+
+== Deck
+
+[source,solidity]
+----
+struct Deck {
+  uint256[52] X0;
+  uint256[52] X1;
+  uint256[2] Selector;
+}
+----
+
+== Card
+
+[source,solidity]
+----
+struct Card {
+  uint256 X0;
+  uint256 Y0;
+  uint256 X1;
+  uint256 Y1;
+}
+----
+
+== CardDeal
+
+[source,solidity]
+----
+struct CardDeal {
+  struct Card[52] cards;
+  uint256[52] record;
+}
+----
+
+== PlayerInfo
+
+[source,solidity]
+----
+struct PlayerInfo {
+  address[] playerAddr;
+  uint256[] playerPk;
+  uint256[2] aggregatedPk;
+}
+----
+
+== State
+
+[source,solidity]
+----
+enum State {
+  Registration,
+  ShufflingDeck,
+  DealingCard
+}
+----
+
+== Shuffle
+
+=== shuffleEncryptVerifier
+
+[source,solidity]
+----
+contract IShuffleEncryptVerifier shuffleEncryptVerifier
+----
+
+=== decryptVerifier
+
+[source,solidity]
+----
+contract IDecryptVerifier decryptVerifier
+----
+
+=== numPlayers
+
+[source,solidity]
+----
+uint256 numPlayers
+----
+
+=== deck
+
+[source,solidity]
+----
+struct Deck deck
+----
+
+=== cardDeal
+
+[source,solidity]
+----
+struct CardDeal cardDeal
+----
+
+=== playerInfo
+
+[source,solidity]
+----
+struct PlayerInfo playerInfo
+----
+
+=== playerIdx
+
+[source,solidity]
+----
+uint256 playerIdx
+----
+
+=== state
+
+[source,solidity]
+----
+enum State state
+----
+
+=== inDealingPhase
+
+[source,solidity]
+----
+modifier inDealingPhase()
+----
+
+=== constructor
+
+[source,solidity]
+----
+constructor(address shuffleEncryptContract, address decryptContract, uint256 specifiedNumPlayer) public
+----
+
+=== resetRegistration
+
+[source,solidity]
+----
+function resetRegistration() internal
+----
+
+=== resetShuffle
+
+[source,solidity]
+----
+function resetShuffle() internal
+----
+
+=== resetDeal
+
+[source,solidity]
+----
+function resetDeal() internal
+----
+
+=== initDeck
+
+[source,solidity]
+----
+function initDeck() internal
+----
+
+=== register
+
+[source,solidity]
+----
+function register(uint256[2] pk) external
+----
+
+=== queryAggregatedPk
+
+[source,solidity]
+----
+function queryAggregatedPk() external view returns (uint256[2])
+----
+
+=== queryDeck
+
+[source,solidity]
+----
+function queryDeck() external view returns (struct Deck)
+----
+
+=== queryCardFromDeck
+
+[source,solidity]
+----
+function queryCardFromDeck(uint256 index) external view returns (uint256[4] card)
+----
+
+=== queryCardInDeal
+
+[source,solidity]
+----
+function queryCardInDeal(uint256 index) external view returns (uint256[4] card)
+----
+
+=== prepareShuffleData
+
+[source,solidity]
+----
+function prepareShuffleData(uint256 nonce, uint256[52] shuffledX0, uint256[52] shuffledX1, uint256[2] selector) internal view returns (uint256[215] input)
+----
+
+=== updateDeck
+
+[source,solidity]
+----
+function updateDeck(uint256[52] shuffledX0, uint256[52] shuffledX1, uint256[2] selector) internal
+----
+
+=== shuffle
+
+[source,solidity]
+----
+function shuffle(uint256[8] proof, uint256 nonce, uint256[52] shuffledX0, uint256[52] shuffledX1, uint256[2] selector) external
+----
+
+=== decompressEC
+
+[source,solidity]
+----
+function decompressEC(uint256 x, uint256 delta, uint256 selector) internal pure returns (uint256)
+----
+
+=== decompressCard
+
+[source,solidity]
+----
+function decompressCard(uint256 cardIdx, uint256[2] delta) internal view returns (uint256[2] Y)
+----
+
+=== deal
+
+[source,solidity]
+----
+function deal(uint256 cardIdx, uint256 curPlayerIdx, uint256[8] proof, uint256[2] decryptedCard, uint256[2] initDelta) external
+----
+
+== Pairing
+
+=== InvalidProof
+
+[source,solidity]
+----
+error InvalidProof()
+----
+
+=== BASE_MODULUS
+
+[source,solidity]
+----
+uint256 BASE_MODULUS
+----
+
+=== SCALAR_MODULUS
+
+[source,solidity]
+----
+uint256 SCALAR_MODULUS
+----
+
+=== G1Point
+
+[source,solidity]
+----
+struct G1Point {
+  uint256 X;
+  uint256 Y;
+}
+----
+
+=== G2Point
+
+[source,solidity]
+----
+struct G2Point {
+  uint256[2] X;
+  uint256[2] Y;
+}
+----
+
+=== P1
+
+[source,solidity]
+----
+function P1() internal pure returns (struct Pairing.G1Point)
+----
+
+==== Return Values
+
+[cols=",,",options="header",]
+|===
+|Name |Type |Description
+|[0] |struct Pairing.G1Point |the generator of G1
+|===
+
+=== P2
+
+[source,solidity]
+----
+function P2() internal pure returns (struct Pairing.G2Point)
+----
+
+==== Return Values
+
+[cols=",,",options="header",]
+|===
+|Name |Type |Description
+|[0] |struct Pairing.G2Point |the generator of G2
+|===
+
+=== negate
+
+[source,solidity]
+----
+function negate(struct Pairing.G1Point p) internal pure returns (struct Pairing.G1Point r)
+----
+
+==== Return Values
+
+[width="100%",cols="22%,21%,57%",options="header",]
+|===
+|Name |Type |Description
+|r |struct Pairing.G1Point |the negation of p,
+i.e. p.addition(p.negate()) should be zero.
+|===
+
+=== addition
+
+[source,solidity]
+----
+function addition(struct Pairing.G1Point p1, struct Pairing.G1Point p2) internal view returns (struct Pairing.G1Point r)
+----
+
+==== Return Values
+
+[cols=",,",options="header",]
+|===
+|Name |Type |Description
+|r |struct Pairing.G1Point |the sum of two points of G1
+|===
+
+=== scalar_mul
+
+[source,solidity]
+----
+function scalar_mul(struct Pairing.G1Point p, uint256 s) internal view returns (struct Pairing.G1Point r)
+----
+
+==== Return Values
+
+[width="100%",cols="22%,21%,57%",options="header",]
+|===
+|Name |Type |Description
+|r |struct Pairing.G1Point |the product of a point on G1 and a scalar,
+i.e. p == p.scalar_mul(1) and p.addition(p) == p.scalar_mul(2) for all
+points p.
+|===
+
+=== pairingCheck
+
+[source,solidity]
+----
+function pairingCheck(struct Pairing.G1Point[] p1, struct Pairing.G2Point[] p2) internal view
+----
+
+Asserts the pairing check e(p1[0], p2[0]) * …. * e(p1[n], p2[n]) == 1
+For example pairing([P1(), P1().negate()], [P2(), P2()]) should succeed
+
+== CurveBabyJubJub
+
+=== A
+
+[source,solidity]
+----
+uint256 A
+----
+
+=== D
+
+[source,solidity]
+----
+uint256 D
+----
+
+=== Q
+
+[source,solidity]
+----
+uint256 Q
+----
+
+=== pointAdd
+
+[source,solidity]
+----
+function pointAdd(uint256 _x1, uint256 _y1, uint256 _x2, uint256 _y2) internal view returns (uint256[2] point)
+----
+
+=== pointMul
+
+[source,solidity]
+----
+function pointMul(uint256 _x1, uint256 _y1, uint256 _d) internal view returns (uint256[2] point)
+----
+
+=== isOnCurve
+
+[source,solidity]
+----
+function isOnCurve(uint256 _x, uint256 _y) internal pure returns (bool)
+----
+
+=== submod
+
+[source,solidity]
+----
+function submod(uint256 _a, uint256 _b, uint256 _mod) internal pure returns (uint256)
+----
+
+=== inverse
+
+[source,solidity]
+----
+function inverse(uint256 _a) internal view returns (uint256)
+----
+
+=== expmod
+
+[source,solidity]
+----
+function expmod(uint256 _b, uint256 _e, uint256 _m) internal view returns (uint256 o)
+----
+
+_Helper function to call the bigModExp precompile_
+
+== IVerifier
+
+=== verifyProof
+
+[source,solidity]
+----
+function verifyProof(uint256[2] a, uint256[2][2] b, uint256[2] c, uint256[4] input) external view
+----
+
+== Signal
+
+=== verifier
+
+[source,solidity]
+----
+contract IVerifier verifier
+----
+
+=== nullifierHashes
+
+[source,solidity]
+----
+mapping(uint256 => bool) nullifierHashes
+----
+
+_Gets a nullifier hash and returns true or false. It is used to prevent
+double-voting._
+
+=== constructor
+
+[source,solidity]
+----
+constructor(contract IVerifier _verifier) public
+----
+
+=== signal
+
+[source,solidity]
+----
+function signal(uint256 rc, bytes32 message, uint256 nullifierHash, uint256 externalNullifier, uint256[8] proof) public returns (bool)
+----
+
+_See \{ISemaphoreVoting-castVote}._
