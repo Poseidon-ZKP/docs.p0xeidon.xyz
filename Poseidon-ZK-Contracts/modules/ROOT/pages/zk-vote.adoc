@@ -1,5 +1,8 @@
 = ZK Vote
 
+=== link:https://github.com/Poseidon-ZKP/zkVote-web[Github Repo] + 
+=== link:https://zk-vote-web-two.vercel.app/[Demo] + 
+
 ZKVote is a dapp that allows users to vote anonymously. It allows you to:
 
 xref:zk-vote-architecture.adoc#createGroup[Create a group] + 
