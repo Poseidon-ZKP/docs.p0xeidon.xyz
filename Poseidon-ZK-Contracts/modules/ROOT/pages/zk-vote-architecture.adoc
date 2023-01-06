@@ -16,13 +16,6 @@ contract IGroup group
 contract ISignal signal
 ----
 
-=== voteStat
-
-[source,solidity]
-----
-mapping(uint256 => mapping(bytes32 => uint256)) voteStat
-----
-
 === GROUP_ID
 
 [source,solidity]
@@ -67,4 +60,12 @@ function createPollInGroup(uint256 groupId, string voteMsg, string title) public
 [source,solidity]
 ----
 function vote(uint256 rc, uint256 groupId, uint256[8] group_proof, bytes32 voteMsg, uint256 nullifierHash, uint256 externalNullifier, uint256[8] signal_proof) public
+----
+
+[#viewPollStat]
+=== voteStat
+
+[source,solidity]
+----
+mapping(uint256 => mapping(bytes32 => uint256)) voteStat
 ----
