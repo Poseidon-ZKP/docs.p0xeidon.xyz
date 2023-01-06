@@ -45,6 +45,7 @@ constructor(contract IGroup _group, contract ISignal _signal) public
 function createGroup(uint256 merkleTreeDepth, address admin) external returns (uint256)
 ----
 
+[#joinGroup]
 === addMember
 
 [source,solidity]
@@ -52,6 +53,15 @@ function createGroup(uint256 merkleTreeDepth, address admin) external returns (u
 function addMember(uint256 groupId, uint256 identityCommitment) public
 ----
 
+[#createPoll]
+=== createPollInGroup
+
+[source,solidity]
+----
+function createPollInGroup(uint256 groupId, string voteMsg, string title) public
+----
+
+[#votePoll]
 === vote
 
 [source,solidity]
