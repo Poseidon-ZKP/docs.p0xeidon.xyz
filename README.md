@@ -1,5 +1,5 @@
 # Documentation Website
-[Vercel Deployment](https://docs-p0xeidon-xyz.vercel.app/p0x-lab/1.0.0/index.html)
+[Vercel Deployment](https://docs-p0xeidon-xyz.vercel.app/)
 
 # To run the site
 ```
