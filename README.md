@@ -27,6 +27,6 @@ xref: path/to/page[CustomName]
 ```
 2. Add reference using 
 ```
-xref: path/to/page#SectionName[CutomName]
+xref: path/to/page#SectionB[SectionB]
 ```
 
