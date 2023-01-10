@@ -11,7 +11,7 @@ xref:application-contracts/zk-vote/zk-vote-architecture.adoc#votePoll[Vote in a 
 xref:application-contracts/zk-vote/zk-vote-architecture.adoc#viewPollStat[View poll stat] + 
 
 
-For more contract details, please checkout xref:zk-vote-architecture.adoc[ZK Vote Architecture]
+For more contract details, please checkout xref:application-contracts/zk-vote/zk-vote-architecture.adoc[ZK Vote Architecture]
 
 The diagram below shows the overall workflow of the dapp 
 
