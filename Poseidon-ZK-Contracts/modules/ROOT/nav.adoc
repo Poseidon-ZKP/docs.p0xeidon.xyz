@@ -1,6 +1,6 @@
 * xref:index.adoc[Overview]
 * xref:technologies.adoc[Technologies]
-** xref:cp-snark.adoc[CP-SNARK]
+** xref:technologies/cp-snark.adoc[CP-SNARK]
 ** xref:merkle-forest.adoc[Merkle Forest]
 ** xref:homomorphic-encryptions.adoc[Homomorphic Encryptions]
 
