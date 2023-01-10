@@ -1,6 +1,17 @@
 # Documentation Website
 [Vercel Deployment](https://docs-p0xeidon-xyz.vercel.app/p0x-lab/1.0.0/index.html)
 
+# To run the site
+```
+git add . && git commit -m "message"
+git push
+npm run build
+```
+Then go to folder build/site/
+Drage the index.html file to the browser to view the result.
+
+**For any changes made within this repo, you must git push first and then run npm run build**
+
 # To Add Page
 ```
 cd modules/ROOT/pages
