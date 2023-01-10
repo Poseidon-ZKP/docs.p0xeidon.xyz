@@ -1,7 +1,6 @@
 = ZK Vote
 
-link:https://github.com/Poseidon-ZKP/zkVote-web[Github Repo] + 
-link:https://zk-vote-web-two.vercel.app/[Demo] + 
+link:[Contr], link:https://github.com/Poseidon-ZKP/poseidon-zk-contracts/blob/feat/modularize-vote/packages/contracts/contracts/voting/vote.sol[Contract Repo], link:https://github.com/Poseidon-ZKP/zkVote-web[dApp Github Repo], link:https://zk-vote-web-two.vercel.app/[dApp Demo] 
 
 ZKVote is a dapp that allows users to vote anonymously. It allows you to:
 
