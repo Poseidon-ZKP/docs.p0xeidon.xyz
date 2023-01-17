@@ -1,1 +1,3 @@
 = CP-SNARK
+
+https://github.com/Poseidon-ZKP/poseidon-zk-contracts/blob/main/packages/circuits/circuits/common/randomize.circom[randomize circuit]
