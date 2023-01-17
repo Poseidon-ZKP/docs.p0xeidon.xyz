@@ -1,1 +1,3 @@
 = Merkle Forest
+
+https://github.com/Poseidon-ZKP/merkle-forest#the-solution-merkle-forest[spec]
