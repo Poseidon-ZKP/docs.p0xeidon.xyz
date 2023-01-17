@@ -1,1 +1,18 @@
 = ZK Signal
+
+[source,mermaid]
+....
+    flowchart LR
+        style r fill:#EE784E,stroke:#EE784E,stroke-width: 1px
+        style rc fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+        style in fill:#EE784E,stroke:#EE784E,stroke-width:1px
+        style n fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+        style en fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+        style sig fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+    subgraph re-randomize commitment
+    r(PRIV - r) --> H1(Poseidon Hash) --> rc(PUB - rc)
+    end
+    in(PRIV - Identity Nullifier) & en(PUB - External Nullifier) --> H2(Poseidon Hash) --> n(PUB - Nullifier)
+    in --> H1
+    sig(PUB - Signal Hash) --> S1(Square)
+....
