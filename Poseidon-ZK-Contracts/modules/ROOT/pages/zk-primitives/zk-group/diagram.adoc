@@ -1,4 +1,4 @@
-[mermaid]
+[mermaid, target="circuit", format=png]
 ....
     flowchart LR
         style r fill:#EE784E,stroke:#EE784E,stroke-width: 1px
