@@ -88,4 +88,10 @@ Please change the last path "Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primiti
 image::circuit.png[circuit]
 ```
 
-**Note** Everytime you add new thing to the diagram, you the change will apply to the same file name so you don't need to worry about rename it. Also, you don't need to specify any path to the image since all images are default to be sit inside the images folder at ROOT folder.
+**Note** 
+1. Everytime you add new thing to the diagram, you the change will apply to the same file name so you don't need to worry about rename it. 
+2. Also, you don't need to specify any path to the image since all images are default to be sit inside the images folder at ROOT folder.
+3. After changing the mermaid labeling, the github will no longer show the diagram correctly, please checkout the vercel deployment or your local build for latest update. Vercel deployment address is at the top of the ReadMe.
+
+For more information, please check out this link: https://docs.asciidoctor.org/diagram-extension/latest/#generating-a-diagram-from-a-terminal
+
