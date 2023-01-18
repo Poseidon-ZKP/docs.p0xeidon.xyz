@@ -61,13 +61,31 @@ gem "asciidoctor-mermaid"
 bundle
 ```
 
-# To create a diagram, run the following command
+# To create a Mermaid diagram, run the following command
 1. Create a new adoc specifically for diagrams in a folder, e.g. the diagram.adoc in zkGroup folder
 
 2. Put your Mermaid diagram in following syntax 
 
-Then run the following command
+```
+[mermaid, target="circuit", format=png]
+....
+/* Mermaid Diagram Syntax*/
+....
+
+```
+
+Where target means the target name, format means the output file type
+
+3. Then run the following command
 ```
  asciidoctor -r asciidoctor-diagram -D Poseidon-ZK-Contracts/modules/ROOT/images  Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc
 ```
-Please change the last path Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc to the path of you desired diagram.adoc
+Please change the last path "Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc" to the path of you desired diagram.adoc
+
+4. Finally put the following image link to the adoc where you want to display the image, for example, if you go to circuit.adoc, you can see the following line:
+
+```
+image::circuit.png[circuit]
+```
+
+**Note** Everytime you add new thing to the diagram, you the change will apply to the same file name so you don't need to worry about rename it. Also, you don't need to specify any path to the image since all images are default to be sit inside the images folder at ROOT folder.
