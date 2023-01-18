@@ -18,4 +18,11 @@
     in --> H1
 ....
 
-mermaid::zk-primitives/zk-group/circuit.adoc[format=png]
+[mermaid]
+----
+graph TD;
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;
+----

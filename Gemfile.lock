@@ -9,6 +9,7 @@ GEM
       rexml
     asciidoctor-diagram-ditaamini (1.0.3)
     asciidoctor-diagram-plantuml (1.2022.14)
+    asciidoctor-mermaid (0.4.1)
     rexml (3.2.5)
 
 PLATFORMS
@@ -16,6 +17,7 @@ PLATFORMS
 
 DEPENDENCIES
   asciidoctor-diagram
+  asciidoctor-mermaid
 
 BUNDLED WITH
    1.17.2
