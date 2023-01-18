@@ -10,7 +10,7 @@ npm run build
 Then go to folder build/site/
 Drage the index.html file to the browser to view the result.
 
-**For any changes made within this repo, you must git push first and then run npm run build**
+*For any changes made within this repo, you must git push first and then run npm run build to see the changes.
 
 # To Add Page
 ```
