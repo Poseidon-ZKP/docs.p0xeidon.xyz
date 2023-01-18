@@ -17,3 +17,5 @@
      in(PRIV - Identity Nullifier) & it(PRIV - Identity Trapdoor) --> H2(Poseidon Hash)  --> |Secret| H3(Poseidon Hash) --> |Identity Commitment| mr
     in --> H1
 ....
+
+mermaid::zk-primitives/zk-group/circuit.adoc[format=png]
