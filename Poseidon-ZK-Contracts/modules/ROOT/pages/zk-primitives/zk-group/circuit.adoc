@@ -1,6 +1,6 @@
 = Circuit
     
-[mermaid, target="circuit"]
+[source, mermaid]
 ....
     flowchart LR
         style r fill:#EE784E,stroke:#EE784E,stroke-width: 1px
@@ -18,7 +18,7 @@
     in --> H1
 ....
 
-[plantuml, target=diagram-classes, format=png]   
+[source, plantuml]   
 ....
 class BlockProcessor
 class DiagramBlock
