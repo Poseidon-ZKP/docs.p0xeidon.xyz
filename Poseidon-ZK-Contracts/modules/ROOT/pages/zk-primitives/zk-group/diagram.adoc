@@ -1,0 +1,30 @@
+[mermaid]
+....
+    flowchart LR
+        style r fill:#EE784E,stroke:#EE784E,stroke-width: 1px
+        style rc fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+        style s fill:#EE784E,stroke:#EE784E,stroke-width:1px
+        style pi fill:#EE784E,stroke:#EE784E,stroke-width:1px
+        style it fill:#EE784E,stroke:#EE784E,stroke-width:1px
+        style in fill:#EE784E,stroke:#EE784E,stroke-width:1px
+        style mr fill:#85E8C2,stroke:#85E8C2,stroke-width:1px
+    subgraph re-randomize commitment
+    	r(PRIV - r) --> H1(Poseidon Hash) --> rc(PUB - rc)
+    end
+    s(PRIV - Siblings) & pi(PRIV - Path Indices) --> M1(MT Verifier) --> mr(PUB - MT Root)
+     in(PRIV - Identity Nullifier) & it(PRIV - Identity Trapdoor) --> H2(Poseidon Hash)  --> |Secret| H3(Poseidon Hash) --> |Identity Commitment| mr
+    in --> H1
+....
+
+
+[mermaid]
+....
+sequenceDiagram
+autonumber
+
+participant a as Alice
+participant b as Bob
+
+a ->>+ b : Hello.
+b -->>- a : Hi, there.
+....
