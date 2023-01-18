@@ -80,21 +80,22 @@ Where target means the target name, format means the output file type
 ```
  asciidoctor -r asciidoctor-diagram -D Poseidon-ZK-Contracts/modules/ROOT/images  Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc
 ```
-Please change the last path "Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc" to the path of you desired diagram.adoc
+Please change the last path "Poseidon-ZK-Contracts/modules/ROOT/pages/zk-primitives/zk-group/diagram.adoc" to the path of you desired diagram.adoc.
+
+Everytime you add new thing to the diagram, the change will apply to the same file name. So you just need to run the following command again to apply latest updates.
+```
+asciidoctor -r asciidoctor-diagram -D Poseidon-ZK-Contracts/modules/ROOT/images path/to/your/diagram.adoc
+```
 
 4. Finally put the following image link to the adoc where you want to display the image, for example, if you go to circuit.adoc, you can see the following line:
 
 ```
 image::circuit.png[circuit]
 ```
+You don't need to specify any path to the image since all images are default to be sit inside the images folder at ROOT folder. So the name here would just simply be circuit.png.
 
 **Note** 
-1. Everytime you add new thing to the diagram, the change will apply to the same file name. So you just need to run the following command again to apply latest updates.
-```
-asciidoctor -r asciidoctor-diagram -D Poseidon-ZK-Contracts/modules/ROOT/images path/to/your/diagram.adoc
-```
-2. Also, you don't need to specify any path to the image since all images are default to be sit inside the images folder at ROOT folder.
-3. After changing the mermaid labeling, the github will no longer show the diagram correctly, please checkout the vercel deployment or your local build for latest update. Vercel deployment address is at the top of the ReadMe.
+After changing the mermaid labeling, the github will no longer show the diagram correctly, please checkout the vercel deployment or your local build for latest update. Vercel deployment address is at the top of the ReadMe.
 
 For more information, please check out this [official link](https://docs.asciidoctor.org/diagram-extension/latest/#generating-a-diagram-from-a-terminal)
 
