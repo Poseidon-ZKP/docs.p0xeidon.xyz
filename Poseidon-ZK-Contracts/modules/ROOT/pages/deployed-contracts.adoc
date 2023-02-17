@@ -1,3 +1,5 @@
 = Deployed Contracts
 
-https://goerli-optimism.etherscan.io/address/0xbff54dea53d243e35389e3f2c7f9c148b0113104[optimism goreli]
+https://goerli-optimism.etherscan.io/address/0xbff54dea53d243e35389e3f2c7f9c148b0113104[Optimism Goreli]
+Consensys ZKM Contract Address: 0xA610bE3F3220C932D7215dA9C16f1105F1b278C
+
