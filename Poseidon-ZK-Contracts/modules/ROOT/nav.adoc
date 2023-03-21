@@ -5,14 +5,8 @@
 ** xref:technologies/homomorphic-encryptions.adoc[Homomorphic Encryptions]
 
 * xref:zk-primitives/zk-primitives.adoc[ZK Primitives]
-** xref:zk-primitives/zk-group/zk-group.adoc[ZK Group]
-*** xref:zk-primitives/zk-group/circuit.adoc[Circuit]
-*** xref:zk-primitives/zk-group/contract.adoc[Contract]
-*** xref:zk-primitives/zk-group/sdk.adoc[SDK]
-** xref:zk-primitives/zk-signal.adoc[ZK Signal]
 ** xref:zk-primitives/zk-asset.adoc[ZK Asset]
 ** xref:zk-primitives/zk-shuffle.adoc[ZK Shuffle]
-
 
 * xref:application-contracts/application-contracts.adoc[Application Contracts]
 ** xref:application-contracts/zk-vote/zk-vote.adoc[ZK Vote]
