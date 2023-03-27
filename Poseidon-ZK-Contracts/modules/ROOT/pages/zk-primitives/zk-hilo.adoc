@@ -1,9 +1,11 @@
-= Title of the Document
+= Build your own ZK game
 
-== Introduction
+== 🤔 What are we building?
 
 [abstract]
-This section provides an overview of the document and its purpose.
+We will build a zero-knowledge game "zk-HiLo" using Poseidon's zk-sdk. 
+Zk-HiLo is intended as a 'Hello World' example for using the Poseidon Labs zkShuffle contracts.
+This repo contains a set of contracts and a frontend web app for playing an on-chain, zk-Powered game of Hi-Lo against a server.
 
 [TODO]
 Add introductory text here.
