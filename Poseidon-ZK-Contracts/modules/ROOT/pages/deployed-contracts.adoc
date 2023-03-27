@@ -1,7 +1,6 @@
 = Deployed Contracts
 
-
-
+[cols="2*", options="header"]
 |=======
 | Contract | Optimism Goreli | Consesus ZKEVM
 | ZkVote | 0xbFF54DEA53D243E35389e3f2C7F9c148b0113104 | 0xA610bE3F3220C932D7215dA9C16f1105F1b278C2
@@ -9,6 +8,4 @@
 | Group Verifier  | 0xabEc9277CBC275131b61c41081cc5b5a08C267a3 | 0x48F8e25562EB57c9Fb1b12145d34f09b1b8bd1D6
 | Signal          | 0xA610bE3F3220C932D7215dA9C16f1105F1b278C2 | 0x432D0AF948bab85e65D6672de68D20B2cE13E1a6
 | Signal Verifier | 0xcC9a29f1C7EFF7F21B2ebee2ea5039c7b507f30a | 0x0A7C5f090Be105EfAb0Cf6705e4f7135c267A3E9
-|=====
-
-
+|=======
