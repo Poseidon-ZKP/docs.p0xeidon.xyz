@@ -12,6 +12,7 @@
 ** xref:zk-primitives/zk-signal.adoc[ZK Signal]
 ** xref:zk-primitives/zk-asset.adoc[ZK Asset]
 ** xref:zk-primitives/zk-shuffle.adoc[ZK Shuffle]
+*** xref:zk-primitives/test.adoc[Test]
 *** xref:zk-primitives/zk-shuffle/zk-hilo.adoc[ZK HiLo]
 
 
