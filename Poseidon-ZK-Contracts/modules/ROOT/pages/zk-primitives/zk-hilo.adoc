@@ -7,33 +7,25 @@ We will build a zero-knowledge game "zk-HiLo" using Poseidon's zk-sdk.
 Zk-HiLo is intended as a 'Hello World' example for using the Poseidon Labs zkShuffle contracts.
 This repo contains a set of contracts and a frontend web app for playing an on-chain, zk-Powered game of Hi-Lo against a server.
 
-[TODO]
-Add introductory text here.
-
-== Body
+== ⚙️ Environment Setup
 
 [sectnumlevels=3]
-This section contains the main content of the document, organized into sections and subsections.
+Our tech stack would be composed of Next.js for front-end, and hardhat for local contract testing. 
 
-=== Section 1
-
-[TODO]
-Add content for Section 1 here.
-
-==== Subsection 1.1
+=== 🗃️ Step 1: Download our sample code
 
 [TODO]
-Add content for Subsection 1.1 here.
+Go to <Placeholder> to download latest code.
 
-==== Subsection 1.2
-
-[TODO]
-Add content for Subsection 1.2 here.
-
-=== Section 2
+=== Step 2: Setup backend
 
 [TODO]
-Add content for Section 2 here.
+* In the contracts directory:
+[source,bash]
+yarn install
+npx hardhat node
+npx hardhat run --network localhost scripts/deploy.ts
+
 
 ==== Subsection 2.1
 
