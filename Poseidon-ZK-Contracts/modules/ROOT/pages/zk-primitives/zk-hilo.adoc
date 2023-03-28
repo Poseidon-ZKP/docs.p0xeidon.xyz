@@ -20,31 +20,18 @@ Go to <Placeholder> to download latest code.
 === Step 2: Setup backend
 
 [TODO]
-* In the contracts directory:
+* In the /contracts directory:
 [source,bash]
 yarn install
 npx hardhat node
+* Open another terminal and run:
+[source,bash]
 npx hardhat run --network localhost scripts/deploy.ts
 
-
-==== Subsection 2.1
-
-[TODO]
-Add content for Subsection 2.1 here.
-
-==== Subsection 2.2
+=== Step 3: Setup frontend
 
 [TODO]
-Add content for Subsection 2.2 here.
-
-== Conclusion
-
-[TODO]
-Add conclusion text here.
-
-== References
-
-This section contains a list of all references cited in the document.
-
-[TODO]
-Add references here.
+* In the /frontend directory:
+[source,bash]
+yarn install
+yarn dev
